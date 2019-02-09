@@ -1,18 +1,11 @@
-# chose one cpuType -> single-index pd.DataFrame
-data.loc["82076"]
+# chose one cpuType
+data.loc[('Intel(R) Celeron(R) M processor 1.50GHz')]
 
-# chose one cpuType, one column -> single-index pd.Series
-data.loc["82076", "yaw"]
+# choose a series of cpuTypes
+data.loc[['Intel(R) Celeron(R) M processor 1.50GHz', 'INTEL Pentium III CPU']]
 
-# chose one time, all turbines -> multi-index pd.DataFrame
-data.loc[(slice(None), dt.datetime(2013, 1, 1, 0, 20)), :]
+# chose one cpuType and MotherBoard-> single-index pd.DataFrame
+data.loc[('Intel(R) Celeron(R) M processor 1.50GHz', ''886LCD-M/ATX  08_01_07'')] -- columns: ['tempBoardAK0', 'tempBoardSLAVE', 'remainingLifetime', 'machineNumberPseudo']
 
-# chose one time, selection of turbines, one column -> multi-index pd.Series
-data.loc[(["82076", "82060", "82062"], dt.datetime(2013, 1, 1, 0, 20)), "wind_speed"]
-
-# chose a period of time, all turbines -> multi-index pd.DataFrame
-data.loc[(data.index.get_level_values(1) > dt.datetime(2013, 1, 1, 0, 45)) & (data.index.get_level_values(1) < dt.datetime(2013, 1, 1, 1, 45))]
-
-# Choosing a period of time is a lot easier for single-index arrays:
-singleindex = data.loc["82076"]
-singleindex.loc[dt.datetime(2013, 1, 1, 0, 20): dt.datetime(2013, 1, 1, 0, 50)]
+# chose one cpuType, one cpuBoard, one column -> single-index pd.Series
+data.loc[('Intel(R) Celeron(R) M processor 1.50GHz', '886LCD-M/ATX  08_01_07'), 'tempBoardAK0']

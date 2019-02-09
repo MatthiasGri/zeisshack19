@@ -13,9 +13,10 @@ def read_in_data(datafile):
     """
     """
     data = pd.read_parquet(datafile)
-    data.index = [data.timestamp, data.cpuType, data.cpuBoard]
-    data = data[data.columns[1:]]
-    logger.info(f'data {data} read in')
+    data.index = [data.cpuType, data.cpuBoard, data.timestamp]
+    data = data[['tempBoardAK0', 'tempBoardSLAVE', 'remainingLifetime', 'machineNumberPseudo']]
+    logger.info(f'data {datafile} read in')
+
     return data
 
 if __name__ == "__main__":
