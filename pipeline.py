@@ -3,9 +3,9 @@ import os
 import logging
 
 logger = logging.getLogger(__name__)
-logging.basicConfig(logging.DEBUG)
+logging.basicConfig(level=logging.DEBUG)
 
-data_folder = r"C:\Users\mosegui\Desktop\ZEISS Hackathon\data"
+data_folder = r"C:\Users\mosegui\Desktop\ZEISS Hackathon\zeisshack19\data"  # use your own path
 train_file = os.path.join(data_folder, r"c99temp_train_pseudo.snappy.parquet")
 valid_file = os.path.join(data_folder, r"c99temp_valid_pseudo.snappy.parquet")
 
